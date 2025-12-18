@@ -1,59 +1,202 @@
 {
   "timeline": [
     {
-      "date": "September 1939",
-      "title": "Poland Invaded",
-      "description": "Germany invades Poland, marking the beginning of World War II. Polish forces mobilize to defend their homeland."
+      "date": "1 September 1939",
+      "title": "Invasion of Poland",
+      "description": "Germany invades Poland from the west, marking the beginning of World War II. Despite being outnumbered and facing obsolete equipment, the Polish Air Force shoots down 126 enemy aircraft. Stanislaw, like thousands of Polish airmen, prepares for the fight ahead."
     },
     {
-      "date": "1940",
-      "title": "Escape to England",
-      "description": "Following the fall of Poland, Stanislaw escapes to England to continue the fight with the RAF."
+      "date": "17 September 1939",
+      "title": "Soviet Invasion",
+      "description": "The Soviet Union invades Poland from the east. With Poland now attacked from both sides, many Polish military personnel, including pilots, begin the dangerous journey to escape and continue the fight from abroad."
+    },
+    {
+      "date": "October 1939 - June 1940",
+      "title": "Escape Through Romania and France",
+      "description": "Polish airmen escape through Romania and Hungary, regrouping in France. Stanislaw joins thousands of his countrymen who refuse to surrender, determined to continue fighting for Poland's freedom from foreign soil."
+    },
+    {
+      "date": "June 1940",
+      "title": "The Fall of France",
+      "description": "France falls to Nazi Germany. Polish pilots evacuate to Britain - 'The Island of Last Hope.' Stanislaw arrives on British shores, joining what would become one of the most formidable fighter forces in RAF history."
+    },
+    {
+      "date": "August 1940",
+      "title": "Polish Squadrons Form",
+      "description": "Polish squadrons are officially formed under RAF command, including the legendary No. 303 'Kościuszko' Squadron. Despite initial skepticism from British command, Polish pilots would soon prove their exceptional skill and courage."
+    },
+    {
+      "date": "July - October 1940",
+      "title": "Battle of Britain",
+      "description": "145 Polish fighter pilots serve in RAF Fighter Command during the Battle of Britain - the largest non-British contingent. They are credited with over 200 kills. No. 303 Squadron alone scores 126 victories, making it the highest-scoring squadron in the battle. Stanislaw flies alongside his compatriots in defense of Britain."
     },
     {
       "date": "1941",
-      "title": "RAF Training",
-      "description": "Completion of RAF pilot training and assignment to a Polish squadron."
+      "title": "RAF Operational Training",
+      "description": "Stanislaw completes advanced RAF operational training, mastering British aircraft and tactics. Polish squadrons continue coastal patrols, convoy escorts, and defensive operations across the English Channel and North Sea."
     },
     {
-      "date": "1942-1945",
-      "title": "Active Service",
-      "description": "Active combat missions over Europe, defending Britain and supporting Allied operations."
+      "date": "1942",
+      "title": "Offensive Operations Begin",
+      "description": "As the tide begins to turn, Polish squadrons participate in offensive sweeps over occupied Europe. Fighter escorts for bomber raids deep into enemy territory become increasingly common. Every mission carries immense risk."
+    },
+    {
+      "date": "1943",
+      "title": "The Bomber Offensive Intensifies",
+      "description": "Polish squadrons support the strategic bombing campaign against Nazi Germany. Fighter pilots like Stanislaw provide crucial escort for bomber formations, engaging enemy fighters over occupied France, Belgium, and Germany itself."
+    },
+    {
+      "date": "6 June 1944",
+      "title": "D-Day: Operation Overlord",
+      "description": "Polish squadrons provide air support for the Normandy landings. Stanislaw flies multiple sorties on D-Day, providing fighter cover for the largest amphibious invasion in history. The liberation of Europe has begun."
+    },
+    {
+      "date": "1944-1945",
+      "title": "Liberation of Europe",
+      "description": "Polish pilots participate in operations supporting the Allied advance across Europe. Ground attack missions, reconnaissance flights, and air superiority operations continue until the final German surrender."
+    },
+    {
+      "date": "8 May 1945",
+      "title": "VE Day: Victory in Europe",
+      "description": "Germany surrenders, ending the war in Europe. For Polish pilots like Stanislaw, the victory is bittersweet - Poland's freedom from Nazi occupation comes at the cost of Soviet domination. Many Polish airmen face an uncertain future, unable to return to their Soviet-controlled homeland."
+    },
+    {
+      "date": "1945-1947",
+      "title": "Post-War Service Continues",
+      "description": "Stanislaw chooses to remain with the RAF rather than return to Soviet-dominated Poland. Approximately 8,000 Polish airmen stay in Britain, making new lives while continuing to serve."
+    },
+    {
+      "date": "1950s",
+      "title": "The Jet Age",
+      "description": "Stanislaw transitions to jet aircraft, serving with 152 Squadron RAF, flying the Gloster Meteor - Britain's first operational jet fighter. He masters night fighter operations in the Meteor NF12 and NF14, adapting his skills to the new jet age."
+    },
+    {
+      "date": "1954-1958",
+      "title": "152 Squadron at RAF Wattisham",
+      "description": "Serving with 152 Squadron at RAF Wattisham and later RAF Stradishall, Stanislaw flies the Meteor in night fighter operations during the early Cold War period. The squadron operates until being disbanded in July 1958."
     }
   ],
   "logbook": [
     {
       "id": 1,
-      "date": "1942-03-15",
-      "title": "Training Flight",
-      "description": "Navigation training exercise over the English Channel. Practice formation flying with squadron.",
-      "aircraft": "Supermarine Spitfire Mk V",
-      "duration": "2h 15m",
+      "date": "1940-09-15",
+      "title": "First Operational Flight - Battle of Britain",
+      "description": "First combat patrol over southern England during the height of the Battle of Britain. Scrambled to intercept enemy bomber formation approaching the coast. Engaged Bf 109 escorts at 20,000 feet.",
+      "aircraft": "Supermarine Spitfire Mk I",
+      "duration": "1h 45m",
       "pilot": "Self",
-      "type": "Training",
-      "image": "images/logbook/logbook_page_001.jpg"
+      "type": "Combat",
+      "image": ""
     },
     {
       "id": 2,
-      "date": "1942-04-03",
-      "title": "Convoy Escort",
-      "description": "Escorted merchant convoy across the North Sea. No enemy contact reported.",
-      "aircraft": "Supermarine Spitfire Mk V",
-      "duration": "3h 45m",
+      "date": "1940-10-27",
+      "title": "Convoy Escort - North Sea",
+      "description": "Escorted merchant convoy through the North Sea. Encountered enemy reconnaissance aircraft but no engagement. Heavy weather made navigation challenging. All ships reached port safely.",
+      "aircraft": "Supermarine Spitfire Mk I",
+      "duration": "2h 30m",
       "pilot": "Self",
       "type": "Operational",
-      "image": "images/logbook/logbook_page_002.jpg"
+      "image": ""
     },
     {
       "id": 3,
-      "date": "1942-05-20",
-      "title": "Coastal Patrol",
-      "description": "Routine coastal patrol mission along the southern coast of England.",
-      "aircraft": "Supermarine Spitfire Mk V",
-      "duration": "1h 30m",
+      "date": "1941-03-12",
+      "title": "Night Flying Training",
+      "description": "Night navigation and landing practice. Essential training for future night fighter operations and emergency situations. Circuit and landing practice in complete darkness.",
+      "aircraft": "Hawker Hurricane Mk I",
+      "duration": "1h 15m",
       "pilot": "Self",
-      "type": "Patrol",
-      "image": "images/logbook/logbook_page_003.jpg"
+      "type": "Training",
+      "image": ""
+    },
+    {
+      "id": 4,
+      "date": "1942-06-18",
+      "title": "Fighter Sweep Over France",
+      "description": "Offensive sweep over occupied France. Part of 12-aircraft formation providing fighter cover for bomber operations. Engaged enemy fighters near Abbeville. One Fw 190 damaged.",
+      "aircraft": "Supermarine Spitfire Mk V",
+      "duration": "2h 10m",
+      "pilot": "Self",
+      "type": "Combat",
+      "image": ""
+    },
+    {
+      "id": 5,
+      "date": "1943-02-20",
+      "title": "Bomber Escort - Ruhr Valley",
+      "description": "Long-range escort mission for Lancaster bomber formation attacking industrial targets in the Ruhr Valley. Heavy flak over target area. All bombers returned safely despite intense enemy opposition.",
+      "aircraft": "Supermarine Spitfire Mk IX",
+      "duration": "3h 25m",
+      "pilot": "Self",
+      "type": "Combat",
+      "image": ""
+    },
+    {
+      "id": 6,
+      "date": "1944-06-06",
+      "title": "D-Day Operations - Normandy",
+      "description": "Fighter cover for the D-Day landings. Three sorties flown over the invasion beaches. Provided air supremacy for ground forces establishing beachheads. Historic day - the liberation of Europe begins.",
+      "aircraft": "Supermarine Spitfire Mk IX",
+      "duration": "4h 30m",
+      "pilot": "Self",
+      "type": "Combat",
+      "image": ""
+    },
+    {
+      "id": 7,
+      "date": "1944-08-15",
+      "title": "Ground Attack Mission - France",
+      "description": "Ground attack mission supporting Allied advance through France. Attacked enemy convoy near Falaise. Heavy ground fire encountered. All aircraft returned despite battle damage.",
+      "aircraft": "Supermarine Spitfire Mk IX",
+      "duration": "2h 15m",
+      "pilot": "Self",
+      "type": "Combat",
+      "image": ""
+    },
+    {
+      "id": 8,
+      "date": "1945-03-22",
+      "title": "Escort Mission - Rhine Crossing",
+      "description": "Fighter escort for Operation Varsity - the airborne assault across the Rhine. Protected transport aircraft carrying paratroopers. Witnessed massive airborne operation. No enemy aircraft encountered.",
+      "aircraft": "Supermarine Spitfire Mk XVI",
+      "duration": "2h 45m",
+      "pilot": "Self",
+      "type": "Operational",
+      "image": ""
+    },
+    {
+      "id": 9,
+      "date": "1956-01-10",
+      "title": "Jet Conversion - Gloster Meteor",
+      "description": "First flight in the Gloster Meteor jet fighter. Transitioning from piston-engine aircraft to jets requires learning entirely new techniques. Speed and altitude capabilities far exceed previous aircraft.",
+      "aircraft": "Gloster Meteor T.7 (Trainer)",
+      "duration": "1h 20m",
+      "pilot": "Dual",
+      "type": "Training",
+      "image": "images/logbook-pages/PXL_20251120_133047379.RAW-01.COVER.jpg"
+    },
+    {
+      "id": 10,
+      "date": "1956-02-15",
+      "title": "Night Fighter Operations",
+      "description": "Night interception training with 152 Squadron. Flying the Meteor NF12 equipped with radar. Practicing intercepts against practice targets at night. The jet age brings new capabilities and new challenges.",
+      "aircraft": "Gloster Meteor NF.12",
+      "duration": "2h 05m",
+      "pilot": "Self",
+      "type": "Training",
+      "image": ""
+    },
+    {
+      "id": 11,
+      "date": "1957-06-20",
+      "title": "Operational Readiness Exercise",
+      "description": "Quick reaction alert exercise with 152 Squadron at RAF Wattisham. Scrambled to intercept unidentified aircraft entering British airspace. Cold War tensions require constant vigilance.",
+      "aircraft": "Gloster Meteor NF.14",
+      "duration": "1h 50m",
+      "pilot": "Self",
+      "type": "Operational",
+      "image": ""
     }
   ],
   "documents": [
@@ -61,29 +204,40 @@
       "id": 1,
       "title": "RAF Service Record",
       "type": "Official Document",
-      "description": "Official service record documenting Stanislaw's time with the Royal Air Force.",
-      "image": "images/documents/service_record_1940.jpg"
+      "description": "Official service record documenting Stanislaw's time with the Royal Air Force, from his arrival in 1940 through his post-war service flying jets in the 1950s.",
+      "image": ""
     },
     {
       "id": 2,
-      "title": "Squadron Photograph",
+      "title": "Polish Squadron Photograph",
       "type": "Photograph",
-      "description": "Group photograph of the Polish squadron, circa 1943.",
-      "image": "images/documents/squadron_photo_1943.jpg"
+      "description": "Group photograph of Polish airmen during World War II. These brave pilots flew alongside their British comrades in defense of freedom.",
+      "image": ""
     },
     {
       "id": 3,
-      "title": "Commendation Letter",
+      "title": "Battle of Britain Commendation",
       "type": "Letter",
-      "description": "Official commendation for bravery and dedication to duty.",
-      "image": "images/documents/commendation_letter.jpg"
+      "description": "Official commendation for service during the Battle of Britain. Polish pilots played a crucial role in defending Britain during its darkest hour.",
+      "image": ""
     },
     {
       "id": 4,
-      "title": "Flight Certificate",
+      "title": "152 Squadron Certificate",
       "type": "Certificate",
-      "description": "RAF pilot qualification certificate and credentials.",
-      "image": "images/documents/flight_certificate.jpg"
+      "description": "Certificate of Competence for Gloster Meteor aircraft with 152 Squadron RAF. Authorizes operation of Britain's first operational jet fighter.",
+      "image": "images/logbook-pages/PXL_20251120_133047379.RAW-01.COVER.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Yorkshire Air Museum Receipt",
+      "type": "Official Document",
+      "description": "Receipt from the Yorkshire Air Museum documenting the loan of Stanislaw's logbook for preservation and research. These precious historical documents help tell the story of the Polish contribution to victory.",
+      "image": "images/logbook-pages/PXL_20251120_133137052.RAW-01.COVER.jpg"
     }
-  ]
+  ],
+  "logbookPages": {
+    "description": "Original pages from Stanislaw Rockminster's RAF logbook. These handwritten records document his service from World War II through the post-war period, including his transition to jet aircraft in the 1950s. Each page tells a story of courage, skill, and dedication to the fight for freedom.",
+    "images": []
+  }
 }
