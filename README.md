@@ -104,7 +104,7 @@ Stanislaw/
 2. Navigate to "Pages" in the left sidebar
 3. Under "Source", select the branch (e.g., `main`) and folder (`/root`)
 4. Click "Save"
-5. Your site will be available at `https://rockminster.github.io/Stanislaw/`
+5. Your site will be available at `https://YOUR_USERNAME.github.io/Stanislaw/`
 
 ### Netlify
 

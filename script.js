@@ -1,93 +1,45 @@
-// Sample data - in a real application, this would be loaded from an API or database
-const timelineData = [
-    {
-        date: "September 1939",
-        title: "Poland Invaded",
-        description: "Germany invades Poland, marking the beginning of World War II. Polish forces mobilize to defend their homeland."
-    },
-    {
-        date: "1940",
-        title: "Escape to England",
-        description: "Following the fall of Poland, Stanislaw escapes to England to continue the fight with the RAF."
-    },
-    {
-        date: "1941",
-        title: "RAF Training",
-        description: "Completion of RAF pilot training and assignment to a Polish squadron."
-    },
-    {
-        date: "1942-1945",
-        title: "Active Service",
-        description: "Active combat missions over Europe, defending Britain and supporting Allied operations."
-    }
-];
+// Data will be loaded from content.json
+let timelineData = [];
+let logbookData = [];
+let documentsData = [];
 
-const logbookData = [
-    {
-        id: 1,
-        date: "15 March 1942",
-        title: "Training Flight",
-        description: "Navigation training exercise over the English Channel. Practice formation flying with squadron.",
-        aircraft: "Supermarine Spitfire Mk V",
-        duration: "2h 15m",
-        pilot: "Self",
-        type: "Training",
-        imagePlaceholder: true
-    },
-    {
-        id: 2,
-        date: "3 April 1942",
-        title: "Convoy Escort",
-        description: "Escorted merchant convoy across the North Sea. No enemy contact reported.",
-        aircraft: "Supermarine Spitfire Mk V",
-        duration: "3h 45m",
-        pilot: "Self",
-        type: "Operational",
-        imagePlaceholder: true
-    },
-    {
-        id: 3,
-        date: "20 May 1942",
-        title: "Coastal Patrol",
-        description: "Routine coastal patrol mission along the southern coast of England.",
-        aircraft: "Supermarine Spitfire Mk V",
-        duration: "1h 30m",
-        pilot: "Self",
-        type: "Patrol",
-        imagePlaceholder: true
+// Load data from JSON file
+async function loadData() {
+    try {
+        const response = await fetch('data/content.json');
+        const data = await response.json();
+        
+        timelineData = data.timeline || [];
+        logbookData = (data.logbook || []).map(entry => ({
+            ...entry,
+            date: formatDate(entry.date),
+            imagePlaceholder: true
+        }));
+        documentsData = (data.documents || []).map(doc => ({
+            ...doc,
+            imagePlaceholder: true
+        }));
+        
+        // Render all sections after data is loaded
+        renderTimeline();
+        renderLogbook();
+        renderDocuments();
+    } catch (error) {
+        console.error('Error loading data:', error);
+        // Use fallback empty data
+        renderTimeline();
+        renderLogbook();
+        renderDocuments();
     }
-];
+}
 
-const documentsData = [
-    {
-        id: 1,
-        title: "RAF Service Record",
-        type: "Official Document",
-        description: "Official service record documenting Stanislaw's time with the Royal Air Force.",
-        imagePlaceholder: true
-    },
-    {
-        id: 2,
-        title: "Squadron Photograph",
-        type: "Photograph",
-        description: "Group photograph of the Polish squadron, circa 1943.",
-        imagePlaceholder: true
-    },
-    {
-        id: 3,
-        title: "Commendation Letter",
-        type: "Letter",
-        description: "Official commendation for bravery and dedication to duty.",
-        imagePlaceholder: true
-    },
-    {
-        id: 4,
-        title: "Flight Certificate",
-        type: "Certificate",
-        description: "RAF pilot qualification certificate and credentials.",
-        imagePlaceholder: true
-    }
-];
+// Format ISO date to human-readable format
+function formatDate(isoDate) {
+    if (!isoDate) return '';
+    const date = new Date(isoDate);
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-GB', options);
+}
 
 // Function to render timeline events
 function renderTimeline() {
@@ -172,10 +124,8 @@ function renderDocuments() {
 
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', () => {
-    // Render all sections
-    renderTimeline();
-    renderLogbook();
-    renderDocuments();
+    // Load data and render all sections
+    loadData();
     
     // Add smooth scrolling to navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
