@@ -7,23 +7,64 @@ This website tells the story of Stanislaw Rockminster, a brave Polish pilot who 
 
 - **Hero Section**: Introduction to Stanislaw's story
 - **Timeline**: Chronological display of significant events in Stanislaw's life and service
-- **RAF Logbook**: Gallery of logbook pages with enriched data about each flight
+- **RAF Logbook**: Gallery of 197 original logbook page scans with enriched data
+- **Original Logbook Pages**: Complete gallery of all 197 scanned logbook pages
 - **Documents**: Collection of historical documents, photographs, and memorabilia
+- **OCR Text Extraction**: Tools to extract and transcribe handwritten logbook content
 
 ## Project Structure
 
 ```
 Stanislaw/
-├── index.html          # Main HTML file
-├── styles.css          # Stylesheet
-├── script.js           # JavaScript for dynamic content
+├── index.html                 # Main HTML file
+├── styles.css                 # Stylesheet
+├── script.js                  # JavaScript for dynamic content
 ├── data/
-│   └── content.json   # Structured data for timeline, logbook, and documents
+│   └── content.json          # Structured data for timeline, logbook, and documents
 ├── images/
-│   ├── logbook/       # Scanned images of RAF logbook pages
-│   └── documents/     # Historical documents and photographs
-└── README.md          # This file
+│   ├── logbook-pages/        # 197 scanned images of RAF logbook pages
+│   ├── logbook/              # Placeholder directory for enriched logbook images
+│   └── documents/            # Historical documents and photographs
+├── extract_logbook_text.py   # OCR script using Tesseract (free, open-source)
+├── extract_logbook_google.py # OCR script using Google Cloud Vision (better accuracy)
+├── requirements-ocr.txt      # Python dependencies for OCR
+├── OCR_README.md             # Detailed OCR extraction guide
+└── README.md                 # This file
 ```
+
+## Extracting Text from Logbook Pages
+
+The repository includes OCR (Optical Character Recognition) tools to extract handwritten text from the 197 logbook page images. See [OCR_README.md](OCR_README.md) for detailed instructions.
+
+### Quick Start - OCR Extraction
+
+**Option 1: Free Tesseract OCR (Open Source)**
+```bash
+# Install dependencies
+sudo apt-get install tesseract-ocr tesseract-ocr-eng
+pip install -r requirements-ocr.txt
+
+# Extract text from first 10 pages (test)
+python3 extract_logbook_text.py
+```
+
+**Option 2: Google Cloud Vision (Better Accuracy)**
+```bash
+# Setup Google Cloud credentials (free tier: 1,000 images/month)
+export GOOGLE_APPLICATION_CREDENTIALS="path/to/credentials.json"
+pip install google-cloud-vision
+
+# Extract text
+python3 extract_logbook_google.py
+```
+
+**Note**: Handwritten text OCR is challenging. Expected accuracy is 60-80% for clear handwriting. Manual review and correction will be needed.
+
+See [OCR_README.md](OCR_README.md) for:
+- Detailed installation instructions
+- Accuracy expectations
+- Alternative approaches
+- Troubleshooting guide
 
 ## Getting Started
 
