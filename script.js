@@ -12,13 +12,9 @@ async function loadData() {
         timelineData = data.timeline || [];
         logbookData = (data.logbook || []).map(entry => ({
             ...entry,
-            date: formatDate(entry.date),
-            imagePlaceholder: true
+            date: formatDate(entry.date)
         }));
-        documentsData = (data.documents || []).map(doc => ({
-            ...doc,
-            imagePlaceholder: true
-        }));
+        documentsData = data.documents || [];
         
         // Render all sections after data is loaded
         renderTimeline();
@@ -46,6 +42,14 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+// Function to render image or placeholder
+function renderImage(imagePath, altText, className) {
+    if (imagePath && imagePath.trim() !== '') {
+        return `<img src="${escapeHtml(imagePath)}" alt="${escapeHtml(altText)}" class="${className}">`;
+    }
+    return `<div class="${className} placeholder-image">${escapeHtml(altText)}</div>`;
 }
 
 // Function to render timeline events
@@ -80,9 +84,7 @@ function renderLogbook() {
     
     container.innerHTML = logbookData.map(entry => `
         <div class="logbook-entry">
-            <div class="logbook-image placeholder-image">
-                ${entry.imagePlaceholder ? 'Logbook Page Image' : ''}
-            </div>
+            ${renderImage(entry.image, 'Logbook Page Image', 'logbook-image')}
             <div class="logbook-info">
                 <div class="date">${escapeHtml(entry.date)}</div>
                 <h3>${escapeHtml(entry.title)}</h3>
@@ -117,9 +119,7 @@ function renderDocuments() {
     
     container.innerHTML = documentsData.map(doc => `
         <div class="document-card">
-            <div class="document-image placeholder-image">
-                ${doc.imagePlaceholder ? 'Document Image' : ''}
-            </div>
+            ${renderImage(doc.image, 'Document Image', 'document-image')}
             <div class="document-info">
                 <h3>${escapeHtml(doc.title)}</h3>
                 <span class="document-type">${escapeHtml(doc.type)}</span>
