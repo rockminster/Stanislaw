@@ -1,0 +1,89 @@
+{
+  "timeline": [
+    {
+      "date": "September 1939",
+      "title": "Poland Invaded",
+      "description": "Germany invades Poland, marking the beginning of World War II. Polish forces mobilize to defend their homeland."
+    },
+    {
+      "date": "1940",
+      "title": "Escape to England",
+      "description": "Following the fall of Poland, Stanislaw escapes to England to continue the fight with the RAF."
+    },
+    {
+      "date": "1941",
+      "title": "RAF Training",
+      "description": "Completion of RAF pilot training and assignment to a Polish squadron."
+    },
+    {
+      "date": "1942-1945",
+      "title": "Active Service",
+      "description": "Active combat missions over Europe, defending Britain and supporting Allied operations."
+    }
+  ],
+  "logbook": [
+    {
+      "id": 1,
+      "date": "1942-03-15",
+      "title": "Training Flight",
+      "description": "Navigation training exercise over the English Channel. Practice formation flying with squadron.",
+      "aircraft": "Supermarine Spitfire Mk V",
+      "duration": "2h 15m",
+      "pilot": "Self",
+      "type": "Training",
+      "image": "images/logbook/logbook_page_001.jpg"
+    },
+    {
+      "id": 2,
+      "date": "1942-04-03",
+      "title": "Convoy Escort",
+      "description": "Escorted merchant convoy across the North Sea. No enemy contact reported.",
+      "aircraft": "Supermarine Spitfire Mk V",
+      "duration": "3h 45m",
+      "pilot": "Self",
+      "type": "Operational",
+      "image": "images/logbook/logbook_page_002.jpg"
+    },
+    {
+      "id": 3,
+      "date": "1942-05-20",
+      "title": "Coastal Patrol",
+      "description": "Routine coastal patrol mission along the southern coast of England.",
+      "aircraft": "Supermarine Spitfire Mk V",
+      "duration": "1h 30m",
+      "pilot": "Self",
+      "type": "Patrol",
+      "image": "images/logbook/logbook_page_003.jpg"
+    }
+  ],
+  "documents": [
+    {
+      "id": 1,
+      "title": "RAF Service Record",
+      "type": "Official Document",
+      "description": "Official service record documenting Stanislaw's time with the Royal Air Force.",
+      "image": "images/documents/service_record_1940.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Squadron Photograph",
+      "type": "Photograph",
+      "description": "Group photograph of the Polish squadron, circa 1943.",
+      "image": "images/documents/squadron_photo_1943.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Commendation Letter",
+      "type": "Letter",
+      "description": "Official commendation for bravery and dedication to duty.",
+      "image": "images/documents/commendation_letter.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Flight Certificate",
+      "type": "Certificate",
+      "description": "RAF pilot qualification certificate and credentials.",
+      "image": "images/documents/flight_certificate.jpg"
+    }
+  ]
+}
