@@ -204,13 +204,34 @@ See [OCR_README.md](OCR_README.md) for:
 
 ## Deployment
 
-### GitHub Pages
+### GitHub Pages (Recommended)
 
-1. Go to your repository settings
-2. Navigate to "Pages" in the left sidebar
-3. Under "Source", select the branch (e.g., `main`) and folder (`/root`)
-4. Click "Save"
-5. Your site will be available at `https://YOUR_USERNAME.github.io/Stanislaw/`
+This website is fully configured for GitHub Pages deployment with:
+- ✅ `.nojekyll` file (skips Jekyll processing)
+- ✅ `_config.yml` for GitHub Pages configuration
+- ✅ Automated deployment workflow (`.github/workflows/pages.yml`)
+- ✅ All relative paths for proper asset loading
+
+**Quick Deploy:**
+
+1. Go to your repository settings: `https://github.com/YOUR_USERNAME/Stanislaw/settings/pages`
+2. Under "Source", select:
+   - **Source**: Deploy from a branch
+   - **Branch**: `main` (or your current branch)
+   - **Folder**: `/ (root)`
+3. Click "Save"
+4. Wait 1-2 minutes for deployment
+5. Your site will be live at: `https://YOUR_USERNAME.github.io/Stanislaw/`
+
+**Alternative: GitHub Actions Deployment**
+
+The repository includes an automated workflow. To enable it:
+
+1. Go to Settings → Pages
+2. Select **Source**: GitHub Actions
+3. The workflow will automatically deploy on every push to main
+
+For detailed instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ### Netlify
 

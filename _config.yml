@@ -1,0 +1,33 @@
+# GitHub Pages Configuration for Stanislaw Rockminster Website
+
+# Disable Jekyll processing since this is a pure static site
+# This ensures files are served as-is without Jekyll transformation
+theme: null
+markdown: kramdown
+highlighter: rouge
+
+# Include directories that would normally be excluded
+include:
+  - images
+  - data
+
+# Exclude build/development files
+exclude:
+  - extract_logbook_text.py
+  - extract_logbook_google.py
+  - extract_simple.py
+  - extract_batch.py
+  - extract_all_pages.py
+  - parse_ocr_content.py
+  - parse_advanced.py
+  - integrate_content.py
+  - process_checkpoint.py
+  - monitor_ocr.sh
+  - run_complete_pipeline.sh
+  - requirements-ocr.txt
+  - OCR_README.md
+  - OCR_COMPLETE_GUIDE.md
+  - OCR_STATUS.md
+  - README.md
+  - .gitignore
+  - ocr_output
