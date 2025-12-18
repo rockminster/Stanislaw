@@ -1,4 +1,10 @@
 {
+  "hero": {
+    "title": "The Story of Stanislaw Rockminster",
+    "subtitle": "Polish RAF Pilot (Rochminski) - Flight Sergeant, 152 Squadron",
+    "description": "Based on actual logbook pages and historical records, discover the journey of Stanislaw Rockminster, a Polish pilot who served with the Royal Air Force. His logbook documents service from WWII through the transition to jet aircraft in the 1950s, when he flew Gloster Meteors with 152 Squadron RAF.",
+    "note": "This website presents both historical context and actual logbook content. OCR text extraction from the 197 handwritten logbook pages is ongoing - expect some inaccuracies as handwriting recognition is challenging."
+  },
   "timeline": [
     {
       "date": "1 September 1939",
@@ -77,6 +83,19 @@
     }
   ],
   "logbook": [
+    {
+      "id": 0,
+      "date": "1956-01-01",
+      "title": "Certificate of Competence - 152 Squadron",
+      "description": "Official RAF Certificate of Competence issued to F/Sgt Rockminster, certifying authorization to service Gloster Meteor aircraft (Mk.VIII, Mk.XII, and Mk.XIV variants) with 152 Squadron RAF. This marks his qualification in the jet age following his WWII service.",
+      "aircraft": "Gloster Meteor Mk.VIII, XII, XIV",
+      "duration": "N/A",
+      "pilot": "F/Sgt Rockminster",
+      "type": "Certification",
+      "image": "images/logbook-pages/PXL_20251120_133047379.RAW-01.COVER.jpg",
+      "ocr_extracted": true,
+      "note": "Extracted from actual logbook page via OCR. 152 Squadron was reformed at RAF Wattisham in 1954 as a night fighter unit with Meteor jets."
+    },
     {
       "id": 1,
       "date": "1940-09-15",

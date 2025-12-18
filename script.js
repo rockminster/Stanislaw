@@ -3,6 +3,7 @@ let timelineData = [];
 let logbookData = [];
 let documentsData = [];
 let logbookPagesData = [];
+let heroData = {};
 
 // Load data from JSON file
 async function loadData() {
@@ -10,12 +11,18 @@ async function loadData() {
         const response = await fetch('data/content.json');
         const data = await response.json();
         
+        heroData = data.hero || {};
         timelineData = data.timeline || [];
         logbookData = (data.logbook || []).map(entry => ({
             ...entry,
             date: formatDate(entry.date)
         }));
         documentsData = data.documents || [];
+        
+        // Update hero if data exists
+        if (heroData.note) {
+            updateHeroWithNote();
+        }
         
         // Load logbook page images
         await loadLogbookPages();
@@ -32,6 +39,18 @@ async function loadData() {
         renderLogbook();
         renderLogbookPages();
         renderDocuments();
+    }
+}
+
+// Update hero section with OCR note
+function updateHeroWithNote() {
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent && heroData.note) {
+        const noteElement = document.createElement('div');
+        noteElement.className = 'hero-note';
+        noteElement.style.cssText = 'margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.1); border-left: 4px solid #c94141; border-radius: 4px;';
+        noteElement.innerHTML = `<p style="margin: 0; font-size: 0.9rem; font-style: italic;">${escapeHtml(heroData.note)}</p>`;
+        heroContent.appendChild(noteElement);
     }
 }
 
@@ -113,7 +132,9 @@ function renderLogbook() {
             <div class="logbook-info">
                 <div class="date">${escapeHtml(entry.date)}</div>
                 <h3>${escapeHtml(entry.title)}</h3>
+                ${entry.ocr_extracted ? '<span class="ocr-badge" style="display: inline-block; background: #2e7d32; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-bottom: 0.5rem;">✓ OCR Extracted from Actual Logbook</span>' : ''}
                 <p>${escapeHtml(entry.description)}</p>
+                ${entry.note ? `<p class="logbook-note" style="font-size: 0.85rem; font-style: italic; color: #666; margin-top: 0.5rem; padding: 0.5rem; background: #f5f5f5; border-radius: 4px;">${escapeHtml(entry.note)}</p>` : ''}
                 <div class="logbook-details">
                     <div class="detail-item">
                         <span class="detail-label">Aircraft:</span>
