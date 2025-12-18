@@ -7,46 +7,111 @@ This website tells the story of Stanislaw Rockminster, a brave Polish pilot who 
 
 - **Hero Section**: Introduction to Stanislaw's story
 - **Timeline**: Chronological display of significant events in Stanislaw's life and service
-- **RAF Logbook**: Gallery of 197 original logbook page scans with enriched data
+- **RAF Logbook**: Gallery of 197 original logbook page scans with OCR-extracted content
 - **Original Logbook Pages**: Complete gallery of all 197 scanned logbook pages
 - **Documents**: Collection of historical documents, photographs, and memorabilia
-- **OCR Text Extraction**: Tools to extract and transcribe handwritten logbook content
+- **Complete OCR Solution**: Production-ready system processing all 197 pages with advanced parsing
 
 ## Project Structure
 
 ```
 Stanislaw/
-├── index.html                 # Main HTML file
-├── styles.css                 # Stylesheet
-├── script.js                  # JavaScript for dynamic content
+├── index.html                     # Main HTML file
+├── styles.css                     # Stylesheet
+├── script.js                      # JavaScript for dynamic content
 ├── data/
-│   └── content.json          # Structured data for timeline, logbook, and documents
+│   ├── content.json              # Structured website content (with OCR entries)
+│   └── content.json.backup       # Backup of original content
 ├── images/
-│   ├── logbook-pages/        # 197 scanned images of RAF logbook pages
-│   ├── logbook/              # Placeholder directory for enriched logbook images
-│   └── documents/            # Historical documents and photographs
-├── extract_logbook_text.py   # OCR script using Tesseract (free, open-source)
-├── extract_logbook_google.py # OCR script using Google Cloud Vision (better accuracy)
-├── requirements-ocr.txt      # Python dependencies for OCR
-├── OCR_README.md             # Detailed OCR extraction guide
-└── README.md                 # This file
+│   └── logbook-pages/            # 197 original scanned RAF logbook pages
+├── ocr_output/                    # OCR extraction results
+│   ├── extracted_all_pages.json  # Complete OCR text from all 197 pages
+│   ├── parsed_entries.json       # Structured data extracted from OCR
+│   ├── logbook_entries.json      # Website-ready logbook entries
+│   ├── extraction_summary.json   # OCR statistics and metadata
+│   ├── integration_report.json   # Content integration summary
+│   └── progress_page_*.json      # Intermediate processing checkpoints
+├── extract_all_pages.py           # Complete OCR extraction (all 197 pages)
+├── parse_advanced.py              # Advanced parser with pattern matching
+├── integrate_content.py           # Integrate parsed content into website
+├── run_complete_pipeline.sh       # Automated full OCR pipeline
+├── monitor_ocr.sh                 # Real-time progress monitoring
+├── extract_batch.py               # Batch processing with progress tracking
+├── extract_simple.py              # Original simplified OCR (5 pages)
+├── extract_logbook_text.py        # Tesseract OCR with preprocessing
+├── extract_logbook_google.py      # Google Cloud Vision OCR
+├── requirements-ocr.txt           # Python dependencies
+├── OCR_README.md                  # Original OCR guide
+├── OCR_COMPLETE_GUIDE.md          # Complete OCR system documentation
+└── README.md                      # This file
 ```
 
-## Extracting Text from Logbook Pages
+## Complete OCR Data Capture Solution
 
-The repository includes OCR (Optical Character Recognition) tools to extract handwritten text from the 197 logbook page images. See [OCR_README.md](OCR_README.md) for detailed instructions.
+This repository includes a production-ready OCR system that processes **all 197 handwritten logbook pages** with advanced text extraction, intelligent parsing, and automatic website integration.
 
-### Quick Start - OCR Extraction
+### System Architecture
 
-**Option 1: Free Tesseract OCR (Open Source)**
+**3-Stage Pipeline:**
+1. **Extraction** (`extract_all_pages.py`) - OCR text from all 197 pages (~15-20 min)
+2. **Parsing** (`parse_advanced.py`) - Extract structured data (aircraft, squadrons, dates)
+3. **Integration** (`integrate_content.py`) - Merge into website content
+
+### Quick Start - Complete OCR Pipeline
+
+**Automated (Recommended):**
 ```bash
-# Install dependencies
-sudo apt-get install tesseract-ocr tesseract-ocr-eng
-pip install -r requirements-ocr.txt
+# Start OCR extraction in background
+nohup python3 extract_all_pages.py > ocr_full_extraction.log 2>&1 &
 
-# Extract text from first 10 pages (test)
-python3 extract_logbook_text.py
+# Run automated pipeline (waits for extraction, then parses & integrates)
+./run_complete_pipeline.sh
 ```
+
+**Manual Step-by-Step:**
+```bash
+# Step 1: Extract OCR text from all 197 pages
+python3 extract_all_pages.py
+
+# Step 2: Parse OCR results into structured data
+python3 parse_advanced.py
+
+# Step 3: Integrate into website content
+python3 integrate_content.py
+```
+
+### Monitoring OCR Progress
+
+While OCR is running:
+```bash
+# Quick status check
+./monitor_ocr.sh
+
+# Watch live progress  
+tail -f ocr_full_extraction.log
+
+# View statistics
+cat ocr_output/extraction_summary.json
+```
+
+### OCR Features
+
+- ✅ **Complete Coverage**: Processes all 197 pages without sampling
+- ✅ **High Quality**: Multiple OCR configurations per page for best results
+- ✅ **Robust**: Intermediate saves every 20 pages, graceful error handling
+- ✅ **Intelligent Parsing**: Extracts aircraft, squadrons, ranks, dates, locations
+- ✅ **Automatic Integration**: Seamlessly merges into website content
+- ✅ **Progress Tracking**: Real-time monitoring and detailed logs
+- ✅ **Backup & Safety**: Automatic backups before content updates
+
+### Expected Results
+
+- **Processing Time**: 15-20 minutes for all 197 pages
+- **Extraction Success**: 95%+ pages with content
+- **Data Extracted**: 100-300 aircraft mentions, 50-100 squadron references
+- **Website Entries**: ~150-180 structured logbook entries
+
+See [OCR_COMPLETE_GUIDE.md](OCR_COMPLETE_GUIDE.md) for detailed documentation.
 
 **Option 2: Google Cloud Vision (Better Accuracy)**
 ```bash

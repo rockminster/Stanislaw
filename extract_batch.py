@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-Simple OCR extraction for RAF logbook pages.
-Extracts text from first 5 images to test and show real content.
+Batch OCR extraction for RAF logbook pages with progress tracking.
+Processes images in batches to show progress and handle errors gracefully.
 """
 
 import json
 from pathlib import Path
 import pytesseract
 from PIL import Image, ImageEnhance, ImageFilter
+import sys
 
 def preprocess_simple(image_path):
     """Simple image preprocessing for better OCR."""
@@ -56,39 +57,62 @@ def extract_text(image_path):
         }
 
 def main():
-    """Process all logbook pages."""
+    """Process all logbook pages with progress tracking."""
     logbook_dir = Path("images/logbook-pages")
     output_dir = Path("ocr_output")
     output_dir.mkdir(exist_ok=True)
     
-    # Process ALL images instead of just 5
+    # Get all images
     image_files = sorted(logbook_dir.glob("*.jpg"))
+    total = len(image_files)
     
-    print(f"Extracting text from {len(image_files)} logbook pages...")
+    print(f"Starting OCR extraction for {total} logbook pages...")
+    print("="*60)
+    print("This will take approximately 10-15 minutes.")
     print("="*60)
     
     results = []
+    successful = 0
+    
     for i, img_path in enumerate(image_files, 1):
-        print(f"\n[{i}/{len(image_files)}] Processing: {img_path.name}")
+        # Progress indicator
+        progress = (i / total) * 100
+        print(f"\n[{i}/{total}] ({progress:.1f}%) Processing: {img_path.name}", end='', flush=True)
+        
         result = extract_text(img_path)
         result['filename'] = img_path.name
         result['page_number'] = i
         results.append(result)
         
         if result['success']:
-            preview = result['text'][:300].replace('\n', ' ')
-            print(f"✓ Extracted: {preview}...")
+            successful += 1
+            print(" ✓")
+            # Show brief preview
+            preview = result['text'][:150].replace('\n', ' ')
+            if len(preview) > 0:
+                print(f"   Preview: {preview}...")
         else:
-            print(f"✗ Failed")
+            print(" ✗")
+            if 'error' in result:
+                print(f"   Error: {result['error']}")
+        
+        # Save intermediate results every 10 images
+        if i % 10 == 0:
+            temp_file = output_dir / f"extracted_progress_{i}.json"
+            with open(temp_file, 'w', encoding='utf-8') as f:
+                json.dump(results, f, indent=2, ensure_ascii=False)
+            print(f"   → Saved progress to {temp_file}")
     
-    # Save results
+    # Save final results
     output_file = output_dir / "extracted_all.json"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     
     print("\n" + "="*60)
+    print(f"✓ OCR extraction complete!")
     print(f"Results saved to: {output_file}")
-    print(f"Successfully extracted: {sum(1 for r in results if r['success'])}/{len(results)}")
+    print(f"Successfully extracted: {successful}/{total} pages ({(successful/total)*100:.1f}%)")
+    print("="*60)
 
 if __name__ == "__main__":
     main()
