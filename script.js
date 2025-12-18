@@ -41,6 +41,13 @@ function formatDate(isoDate) {
     return date.toLocaleDateString('en-GB', options);
 }
 
+// Escape HTML to prevent XSS
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
 // Function to render timeline events
 function renderTimeline() {
     const container = document.getElementById('timeline-container');
@@ -54,9 +61,9 @@ function renderTimeline() {
         <div class="timeline-event">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-                <div class="timeline-date">${event.date}</div>
-                <h3>${event.title}</h3>
-                <p>${event.description}</p>
+                <div class="timeline-date">${escapeHtml(event.date)}</div>
+                <h3>${escapeHtml(event.title)}</h3>
+                <p>${escapeHtml(event.description)}</p>
             </div>
         </div>
     `).join('');
@@ -77,21 +84,21 @@ function renderLogbook() {
                 ${entry.imagePlaceholder ? 'Logbook Page Image' : ''}
             </div>
             <div class="logbook-info">
-                <div class="date">${entry.date}</div>
-                <h3>${entry.title}</h3>
-                <p>${entry.description}</p>
+                <div class="date">${escapeHtml(entry.date)}</div>
+                <h3>${escapeHtml(entry.title)}</h3>
+                <p>${escapeHtml(entry.description)}</p>
                 <div class="logbook-details">
                     <div class="detail-item">
                         <span class="detail-label">Aircraft:</span>
-                        <span class="detail-value">${entry.aircraft}</span>
+                        <span class="detail-value">${escapeHtml(entry.aircraft)}</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">Duration:</span>
-                        <span class="detail-value">${entry.duration}</span>
+                        <span class="detail-value">${escapeHtml(entry.duration)}</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">Type:</span>
-                        <span class="detail-value">${entry.type}</span>
+                        <span class="detail-value">${escapeHtml(entry.type)}</span>
                     </div>
                 </div>
             </div>
@@ -114,9 +121,9 @@ function renderDocuments() {
                 ${doc.imagePlaceholder ? 'Document Image' : ''}
             </div>
             <div class="document-info">
-                <h3>${doc.title}</h3>
-                <span class="document-type">${doc.type}</span>
-                <p>${doc.description}</p>
+                <h3>${escapeHtml(doc.title)}</h3>
+                <span class="document-type">${escapeHtml(doc.type)}</span>
+                <p>${escapeHtml(doc.description)}</p>
             </div>
         </div>
     `).join('');
